@@ -1,7 +1,6 @@
 # program_tai-Body_Length_evaluation
 program_tai3-main_field_photo_texture_and_HSV_analysis
-
-These programs were created with outstanding contributions by Master Shion Yamada (Chiba University).
+(These programs were created with outstanding contributions by Shion Yamada master's degree in Chiba University)
 
 1. Make the folder name "preparation_before"
 2. Store the target photo (.tiff) in the folder (example: 4.tif in the site)
