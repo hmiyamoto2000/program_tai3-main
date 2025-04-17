@@ -5,6 +5,7 @@ import math
 import pandas as pd
 
 # ディレクトリのパスを指定
+# Specify the directory path
 directory_path = 'preparation_before'
 
 # 座標が格納されている配列から始点と終点を取り出す
@@ -44,6 +45,7 @@ def right_angle_line(line_coords, point_coords, color):
 
     
 # tifファイルの読み込みとファイル名の一覧表示
+# Loading tif files and displaying a list of file names
 tif_files = [f for f in os.listdir(directory_path) if f.endswith('.tif')]
 for file in tif_files:
     file_path = os.path.join(directory_path, file)
@@ -71,9 +73,11 @@ for file in tif_files:
     cv2.line(image, magenta_coords[0], magenta_coords[0], (0, 254, 254), 1)
 
     # ファイル名を動的に生成
+    # Dynamically generate file names
     filename_without_ext = os.path.splitext(file)[0]
     new_file_path = f'preparation_after/{filename_without_ext}.tif'
     
     # 画像を保存
+    # Save image
     cv2.imwrite(new_file_path, image)
     print(f'Saved {new_file_path}')
