@@ -26,6 +26,7 @@ def filter_coords(coords):
 
 
 # tifファイルの読み込みとファイル名の一覧表示
+# Loading tif files and displaying a list of file names
 tif_files = [f for f in os.listdir(directory_path) if f.endswith('.tif')]
 for file in tif_files:
     file_path = os.path.join(directory_path, file)
@@ -40,6 +41,7 @@ for file in tif_files:
     blue = [255,0,2]
     
     #座標の読み取り、（直線の場合、始点と終点の座標だけ取り出す）
+    #Reading coordinates (in the case of a straight line, extract only the coordinates of the starting point and end point)
     yellow_coords = np.argwhere(np.all(image == yellow, axis=-1))
     yellow2_coords = np.argwhere(np.all(image == yellow2, axis=-1))
     cyan_coords = np.argwhere(np.all(image == cyan, axis=-1))
@@ -101,11 +103,14 @@ for file in tif_files:
 
     
     # 結果をリストに追加
+    #Add results to list
     results.append([filename_without_ext, R1_Ratio1, Ratio2, Ratio3, Ratio4, Ratio5, raito6,raito7])
 
 # データフレームの作成
+# Creating a data frame
 df = pd.DataFrame(results, columns=['Filename', 'R1_Ratio1', 'Ratio2', 'Ratio3', 'Ratio4', 'Ratio5', 'R2_Ratio6','R3_Ratio7'])
 
 # エクセルファイルに書き込み
+# Write to Excel file
 output_path = 'output.xlsx'
 df.to_excel(output_path, index=False)
